@@ -1,0 +1,13 @@
+---
+- name: Workflow 1 Job Template Playbook 3
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Wait for 2 seconds task
+      ansible.builtin.wait_for:
+        timeout: 2
+
+    - name: Print in to ansible log using debug module "Job template 3 Done"
+      ansible.builtin.debug:
+        msg: "Job template 3 Done"
