@@ -15,4 +15,4 @@
 
     - name: Show fact using debug module
       ansible.builtin.debug:
-        var: custom_facts
+        var: app1
