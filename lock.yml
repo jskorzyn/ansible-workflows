@@ -11,7 +11,8 @@
 
     - name: Gaather facts
       ansible.builtin.setup:
+      register: custom_facts
 
     - name: Show fact using debug module
       ansible.builtin.debug:
-        var: ansible_local['custom']['app1']
+        var: custom_facts
