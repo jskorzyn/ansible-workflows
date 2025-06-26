@@ -1,0 +1,17 @@
+---
+- name: APP Change Lock Set Job
+  hosts: aappodman
+  gather_facts: true
+
+  tasks:
+    - name: Set persistent fact on machine with key - app1 and value - locked
+      ansible.builtin.set_fact:
+        app1: locked
+        cacheable: true
+
+    - name: Gaather facts
+      ansible.builtin.setup:
+
+    - name: Show fact using debug module
+      ansible.builtin.debug:
+        var: ansible_local['custom']['app1']
