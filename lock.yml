@@ -1,6 +1,6 @@
 ---
 - name: APP Change Lock Set Job
-  hosts: aappodman
+  hosts: aappodman.jsrh.redhat.lab
   gather_facts: true
 
   tasks:
