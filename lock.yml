@@ -9,10 +9,6 @@
         app1: locked
         cacheable: true
 
-    - name: Gaather facts
-      ansible.builtin.setup:
-      register: custom_facts
-
     - name: Show fact using debug module
       ansible.builtin.debug:
         var: app1
