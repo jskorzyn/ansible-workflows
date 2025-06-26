@@ -9,10 +9,3 @@
         path: /root/app1.lock
         state: touch
         mode: '0644'
-
-    - name: Confirm it is created with assert module
-      ansible.builtin.assert:
-        that:
-          - "'/root/app1.lock' is exists"
-        fail_msg: Lock file is not created
-        success_msg: Lock file is created

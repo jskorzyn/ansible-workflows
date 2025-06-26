@@ -8,4 +8,3 @@
       ansible.builtin.file:
         state: absent
         path: /root/app1.lock
-
