@@ -6,7 +6,7 @@
   tasks:
     - name: Wait for 30 seconds task
       ansible.builtin.wait_for:
-        timeout: 30
+        timeout: 50
 
     - name: Print in to ansible log using debug module "Job template 1 Done"
       ansible.builtin.debug:
