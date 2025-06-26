@@ -4,11 +4,8 @@
   gather_facts: true
 
   tasks:
-    - name: Set persistent fact on machine with key - app1 and value - unlocked
-      ansible.builtin.set_fact:
-        app1: unlocked
-        cacheable: true
+    - name: Remove file app1.lock from /root
+      ansible.builtin.file:
+        state: absent
+        path: /root/app1.lock
 
-    - name: Show fact using debug module
-      ansible.builtin.debug:
-        var: app1

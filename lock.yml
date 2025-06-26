@@ -4,11 +4,15 @@
   gather_facts: true
 
   tasks:
-    - name: Set persistent fact on machine with key - app1 and value - locked
-      ansible.builtin.set_fact:
-        app1: locked
-        cacheable: true
+    - name: Create file app1.lock in /root
+      ansible.builtin.file:
+        path: /root/app1.lock
+        state: touch
+        mode: '0644'
 
-    - name: Show fact using debug module
-      ansible.builtin.debug:
-        var: app1
+    - name: Confirm it is created with assert module
+      ansible.builtin.assert:
+        that:
+          - "'/root/app1.lock' is exists"
+        fail_msg: Lock file is not created
+        success_msg: Lock file is created

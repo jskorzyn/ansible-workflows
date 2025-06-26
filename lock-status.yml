@@ -1,0 +1,16 @@
+---
+- name: APP Lock Status
+  hosts: aappodman.jsrh.redhat.lab
+  gather_facts: true
+
+  tasks:
+    - name: Wait until variable app1 is unlocked
+      ansible.builtin.wait_for:
+        path: /root/app1.lock
+        state: absent
+        msg: Application 1 is locked
+        timeout: 300
+
+    - name: Show fact using debug module
+      ansible.builtin.debug:
+        msg: Let's Continue
